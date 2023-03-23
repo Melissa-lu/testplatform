@@ -1,0 +1,84 @@
+{
+    "value": [{
+            "label": "BI图表",
+            "value": "BI图表"
+        },
+        {
+            "label": "FRM/自适应",
+            "value": "FRM/自适应"
+        },
+        {
+            "label": "FR图表",
+            "value": "FR图表"
+        },
+        {
+            "label": "FVS",
+            "value": "FVS"
+        },
+        {
+            "label": "中台前端",
+            "value": "中台前端"
+        },
+        {
+            "label": "移动端",
+            "value": "移动端"
+        },
+        {
+            "label": "基础功能",
+            "value": "基础功能"
+        },
+        {
+            "label": "填报",
+            "value": "填报"
+        },
+        {
+            "label": "大运维",
+            "value": "大运维"
+        },
+        {
+            "label": "云端",
+            "value": "云端"
+        },
+        {
+            "label": "安全性",
+            "value": "安全性"
+        },
+        {
+            "label": "官方插件",
+            "value": "官方插件"
+        },
+        {
+            "label": "帆软市场",
+            "value": "帆软市场"
+        },
+        {
+            "label": "平台",
+            "value": "平台"
+        },
+        {
+            "label": "性能",
+            "value": "性能"
+        },
+        {
+            "label": "插件",
+            "value": "插件"
+        },
+        {
+            "label": "数据源",
+            "value": "数据源"
+        },
+        {
+            "label": "第三方插件",
+            "value": "第三方插件"
+        },
+        {
+            "label": "计算",
+            "value": "计算"
+        },
+        {
+            "label": "设计器",
+            "value": "设计器"
+        }
+
+    ]
+}

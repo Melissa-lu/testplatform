@@ -1,0 +1,100 @@
+{
+    "value": [{
+            "label": "BI图表",
+            "value": "BI图表"
+        },
+        {
+            "label": "FineBIExcel插件",
+            "value": "FineBIExcel插件"
+        },
+        {
+            "label": "公共数据",
+            "value": "公共数据"
+        },
+        {
+            "label": "升级运维",
+            "value": "升级运维"
+        },
+        {
+            "label": "埋点",
+            "value": "埋点"
+        },
+        {
+            "label": "大运维",
+            "value": "大运维"
+        },
+        {
+            "label": "安全性",
+            "value": "安全性"
+        },
+        {
+            "label": "引擎",
+            "value": "引擎"
+        },
+        {
+            "label": "我的分析",
+            "value": "我的分析"
+        },
+        {
+            "label": "数据准备",
+            "value": "数据准备"
+        },
+        {
+            "label": "数据挖掘",
+            "value": "数据挖掘"
+        },
+        {
+            "label": "更新调度",
+            "value": "更新调度"
+        },
+        {
+            "label": "平台",
+            "value": "平台"
+        },
+        {
+            "label": "性能",
+            "value": "性能"
+        },
+        {
+            "label": "测试",
+            "value": "测试"
+        },
+        {
+            "label": "环境部署",
+            "value": "环境部署"
+        },
+        {
+            "label": "用户中心插件",
+            "value": "用户中心插件"
+        },
+        {
+            "label": "直连",
+            "value": "直连"
+        },
+        {
+            "label": "第三方插件",
+            "value": "第三方插件"
+        },
+        {
+            "label": "自动化",
+            "value": "自动化"
+        },
+        {
+            "label": "隐患",
+            "value": "隐患"
+        },
+        {
+            "label": "集群",
+            "value": "集群"
+        },
+        {
+            "label": "需求调研/需求整理",
+            "value": "需求调研/需求整理"
+        },
+        {
+            "label": "6.0.3",
+            "value": "6.0.3"
+        }
+
+    ]
+}
