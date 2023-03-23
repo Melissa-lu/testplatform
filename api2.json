@@ -1,0 +1,2430 @@
+{
+    "paths": {
+        "/dashboard/jira/components": {
+            "get": {
+                "parameters": [{
+                    "description": "project类型,如REPORT",
+                    "in": "query",
+                    "name": "ProjectId",
+                    "required": true,
+                    "schema": {
+                        "description": "project类型,如REPORT",
+                        "format": "string",
+                        "properties": {
+
+                        },
+                        "type": "string"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.JiraComponentsListRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "获取jira模块列表",
+                "tags": [
+                    "Jira相关操作"
+                ]
+            },
+            "summary": "获取jira模块列表"
+        },
+        "/dashboard/notify": {
+            "get": {
+                "parameters": [{
+                        "description": "通知信息类型 1:迭代管理面板 2:个人面板",
+                        "in": "query",
+                        "name": "NotifyType",
+                        "required": true,
+                        "schema": {
+                            "description": "通知信息类型 1:迭代管理面板 2:个人面板",
+                            "enum": [
+                                1,
+                                2
+                            ],
+                            "format": "int",
+                            "properties": {
+
+                            },
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "description": "指定负责人视角的任务列表",
+                        "in": "query",
+                        "name": "UserView",
+                        "schema": {
+                            "description": "指定负责人视角的任务列表",
+                            "format": "[]string",
+                            "items": {
+                                "format": "string",
+                                "properties": {
+
+                                },
+                                "type": "string"
+                            },
+                            "properties": {
+
+                            },
+                            "type": "array"
+                        }
+                    },
+                    {
+                        "description": "获取负责人名单",
+                        "in": "query",
+                        "name": "GetUserList",
+                        "schema": {
+                            "description": "获取负责人名单",
+                            "enum": [
+                                1
+                            ],
+                            "format": "int",
+                            "properties": {
+
+                            },
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.NotifyListRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "获取任务处理信息列表",
+                "tags": [
+                    "任务处理信息"
+                ]
+            },
+            "summary": "获取任务处理信息列表"
+        },
+        "/dashboard/notify/user_list": {
+            "get": {
+                "parameters": [{
+                    "description": "通知信息类型 1:迭代管理面板 2:个人面板",
+                    "in": "query",
+                    "name": "NotifyType",
+                    "required": true,
+                    "schema": {
+                        "description": "通知信息类型 1:迭代管理面板 2:个人面板",
+                        "enum": [
+                            1
+                        ],
+                        "format": "int",
+                        "properties": {
+
+                        },
+                        "type": "integer"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.NotifyUserRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "获取负责人名单",
+                "tags": [
+                    "任务处理信息"
+                ]
+            },
+            "summary": "获取负责人名单"
+        },
+        "/dashboard/task": {
+            "get": {
+                "parameters": [{
+                    "description": "版本id",
+                    "in": "query",
+                    "name": "VersionId",
+                    "schema": {
+                        "description": "版本id",
+                        "format": "string",
+                        "properties": {
+
+                        },
+                        "type": "string"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.IterationListRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "获取迭代列表",
+                "tags": [
+                    "迭代管理"
+                ]
+            },
+            "post": {
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TestPlatform.api.v1.IterationCreateReq"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.IterationCreateRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "创建迭代排期",
+                "tags": [
+                    "迭代管理"
+                ]
+            },
+            "summary": "创建迭代排期"
+        },
+        "/dashboard/task/config/stages": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.IterationStageConfigRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "获取预定义的迭代阶段信息",
+                "tags": [
+                    "迭代管理"
+                ]
+            },
+            "summary": "获取预定义的迭代阶段信息"
+        },
+        "/dashboard/task/import": {
+            "post": {
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TestPlatform.api.v1.IterExcelImportReq"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.IterExcelImportRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "导入迭代excel",
+                "tags": [
+                    "迭代管理"
+                ]
+            },
+            "summary": "导入迭代excel"
+        },
+        "/dashboard/task/{Id}": {
+            "delete": {
+                "parameters": [{
+                        "description": "迭代ID",
+                        "in": "path",
+                        "name": "Id",
+                        "required": true,
+                        "schema": {
+                            "description": "迭代ID",
+                            "format": "string",
+                            "properties": {
+
+                            },
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "迭代任务id",
+                        "in": "query",
+                        "name": "work_id",
+                        "schema": {
+                            "description": "迭代任务id",
+                            "format": "string",
+                            "properties": {
+
+                            },
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "版本的uuid",
+                        "in": "query",
+                        "name": "version_id",
+                        "schema": {
+                            "description": "版本的uuid",
+                            "format": "string",
+                            "properties": {
+
+                            },
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "迭代任务的主提醒人",
+                        "in": "query",
+                        "name": "notify_users",
+                        "schema": {
+                            "description": "迭代任务的主提醒人",
+                            "format": "[]string",
+                            "items": {
+                                "format": "string",
+                                "properties": {
+
+                                },
+                                "type": "string"
+                            },
+                            "properties": {
+
+                            },
+                            "type": "array"
+                        }
+                    },
+                    {
+                        "description": "节点列表",
+                        "in": "query",
+                        "name": "stages",
+                        "schema": {
+                            "description": "节点列表",
+                            "format": "[]*v1.IterationStage",
+                            "items": {
+                                "$ref": "#/components/schemas/TestPlatform.api.v1.IterationStage"
+                            },
+                            "properties": {
+
+                            },
+                            "type": "array"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.IterationDeleteRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "删除版本排期",
+                "tags": [
+                    "迭代管理"
+                ]
+            },
+            "get": {
+                "parameters": [{
+                    "description": "迭代ID",
+                    "in": "path",
+                    "name": "Id",
+                    "required": true,
+                    "schema": {
+                        "description": "迭代ID",
+                        "format": "string",
+                        "properties": {
+
+                        },
+                        "type": "string"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.IterationDetailRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "获取迭代信息",
+                "tags": [
+                    "迭代管理"
+                ]
+            },
+            "put": {
+                "parameters": [{
+                    "description": "版本ID",
+                    "in": "path",
+                    "name": "Id",
+                    "required": true,
+                    "schema": {
+                        "description": "版本ID",
+                        "format": "string",
+                        "properties": {
+
+                        },
+                        "type": "string"
+                    }
+                }],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TestPlatform.api.v1.IterationModifyReq"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.IterationModifyRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "修改迭代排期",
+                "tags": [
+                    "迭代管理"
+                ]
+            },
+            "summary": "修改迭代排期"
+        },
+        "/dashboard/task/{Id}/comment": {
+            "get": {
+                "parameters": [{
+                    "description": "迭代ID",
+                    "in": "path",
+                    "name": "Id",
+                    "required": true,
+                    "schema": {
+                        "description": "迭代ID",
+                        "format": "string",
+                        "properties": {
+
+                        },
+                        "type": "string"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.IterCommentListRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "获取迭代评论列表",
+                "tags": [
+                    "迭代管理"
+                ]
+            },
+            "post": {
+                "parameters": [{
+                    "description": "迭代ID",
+                    "in": "path",
+                    "name": "Id",
+                    "required": true,
+                    "schema": {
+                        "description": "迭代ID",
+                        "format": "string",
+                        "properties": {
+
+                        },
+                        "type": "string"
+                    }
+                }],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TestPlatform.api.v1.IterCommentAddReq"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.IterCommentAddRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "添加迭代评论",
+                "tags": [
+                    "迭代管理"
+                ]
+            },
+            "summary": "添加迭代评论"
+        },
+        "/dashboard/task/{Id}/comment/{Index}": {
+            "delete": {
+                "parameters": [{
+                        "description": "迭代ID",
+                        "in": "path",
+                        "name": "Id",
+                        "required": true,
+                        "schema": {
+                            "description": "迭代ID",
+                            "format": "string",
+                            "properties": {
+
+                            },
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "删除的评论数组下标",
+                        "in": "path",
+                        "name": "Index",
+                        "required": true,
+                        "schema": {
+                            "description": "删除的评论数组下标",
+                            "format": "int",
+                            "properties": {
+
+                            },
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.IterCommentDeleteRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "删除迭代评论",
+                "tags": [
+                    "迭代管理"
+                ]
+            },
+            "put": {
+                "parameters": [{
+                        "description": "迭代ID",
+                        "in": "path",
+                        "name": "Id",
+                        "required": true,
+                        "schema": {
+                            "description": "迭代ID",
+                            "format": "string",
+                            "properties": {
+
+                            },
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "修改的评论数组下标",
+                        "in": "path",
+                        "name": "Index",
+                        "required": true,
+                        "schema": {
+                            "description": "修改的评论数组下标",
+                            "format": "int",
+                            "properties": {
+
+                            },
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TestPlatform.api.v1.IterCommentModifyReq"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.IterCommentModifyRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "修改代评论",
+                "tags": [
+                    "迭代管理"
+                ]
+            },
+            "summary": "修改代评论"
+        },
+        "/dashboard/task/{Id}/detail": {
+            "get": {
+                "parameters": [{
+                    "description": "迭代ID",
+                    "in": "path",
+                    "name": "Id",
+                    "required": true,
+                    "schema": {
+                        "description": "迭代ID",
+                        "format": "string",
+                        "properties": {
+
+                        },
+                        "type": "string"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.IterationRealtimeDetailRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "获取迭代实时信息",
+                "tags": [
+                    "迭代管理"
+                ]
+            },
+            "summary": "获取迭代实时信息"
+        },
+        "/dashboard/version": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.VersionListRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "获取版本排期列表",
+                "tags": [
+                    "版本管理"
+                ]
+            },
+            "post": {
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TestPlatform.api.v1.VersionCreateReq"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.VersionCreateRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "创建版本排期",
+                "tags": [
+                    "版本管理"
+                ]
+            },
+            "summary": "创建版本排期"
+        },
+        "/dashboard/version/config/stages": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.VersionStageConfigRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "获取预定义的版本阶段信息",
+                "tags": [
+                    "版本管理"
+                ]
+            },
+            "summary": "获取预定义的版本阶段信息"
+        },
+        "/dashboard/version/current_issues": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.VersionCurrentIssueRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "预发布版本我正在处理的任务",
+                "tags": [
+                    "版本管理"
+                ]
+            },
+            "summary": "预发布版本我正在处理的任务"
+        },
+        "/dashboard/version/minor": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.VersionMinorRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "获取minor_version列表",
+                "tags": [
+                    "版本管理"
+                ]
+            },
+            "summary": "获取minor_version列表"
+        },
+        "/dashboard/version/{Id}": {
+            "delete": {
+                "parameters": [{
+                        "description": "版本ID",
+                        "in": "path",
+                        "name": "Id",
+                        "required": true,
+                        "schema": {
+                            "description": "版本ID",
+                            "format": "string",
+                            "properties": {
+
+                            },
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "版本名称",
+                        "in": "query",
+                        "name": "name",
+                        "schema": {
+                            "description": "版本名称",
+                            "format": "string",
+                            "properties": {
+
+                            },
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "大版本:10.0/11.0",
+                        "in": "query",
+                        "name": "version",
+                        "schema": {
+                            "description": "大版本:10.0/11.0",
+                            "format": "string",
+                            "properties": {
+
+                            },
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "小版本:11.0.7",
+                        "in": "query",
+                        "name": "minor_version",
+                        "schema": {
+                            "description": "小版本:11.0.7",
+                            "format": "string",
+                            "properties": {
+
+                            },
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "通知用户列表",
+                        "in": "query",
+                        "name": "notify_users",
+                        "schema": {
+                            "description": "通知用户列表",
+                            "format": "[]string",
+                            "items": {
+                                "format": "string",
+                                "properties": {
+
+                                },
+                                "type": "string"
+                            },
+                            "properties": {
+
+                            },
+                            "type": "array"
+                        }
+                    },
+                    {
+                        "description": "节点列表",
+                        "in": "query",
+                        "name": "stages",
+                        "schema": {
+                            "description": "节点列表",
+                            "format": "[]*v1.VersionStage",
+                            "items": {
+                                "$ref": "#/components/schemas/TestPlatform.api.v1.VersionStage"
+                            },
+                            "properties": {
+
+                            },
+                            "type": "array"
+                        }
+                    },
+                    {
+                        "description": "版本发布时间",
+                        "in": "query",
+                        "name": "version_publish_date",
+                        "schema": {
+                            "description": "版本发布时间",
+                            "format": "*gtime.Time",
+                            "properties": {
+
+                            },
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "移动端版本",
+                        "in": "query",
+                        "name": "mobile_version",
+                        "schema": {
+                            "description": "移动端版本",
+                            "format": "string",
+                            "properties": {
+
+                            },
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.VersionDeleteRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "删除版本排期",
+                "tags": [
+                    "版本管理"
+                ]
+            },
+            "get": {
+                "parameters": [{
+                    "description": "版本ID",
+                    "in": "path",
+                    "name": "Id",
+                    "required": true,
+                    "schema": {
+                        "description": "版本ID",
+                        "format": "string",
+                        "properties": {
+
+                        },
+                        "type": "string"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.VersionDetailRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "获取版本排期信息",
+                "tags": [
+                    "版本管理"
+                ]
+            },
+            "put": {
+                "parameters": [{
+                    "description": "版本ID",
+                    "in": "path",
+                    "name": "Id",
+                    "required": true,
+                    "schema": {
+                        "description": "版本ID",
+                        "format": "string",
+                        "properties": {
+
+                        },
+                        "type": "string"
+                    }
+                }],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TestPlatform.api.v1.VersionModifyReq"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.VersionModifyRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "修改版本排期",
+                "tags": [
+                    "版本管理"
+                ]
+            },
+            "summary": "修改版本排期"
+        },
+        "/dashboard/version/{Id}/bug": {
+            "get": {
+                "parameters": [{
+                    "description": "版本ID",
+                    "in": "path",
+                    "name": "Id",
+                    "required": true,
+                    "schema": {
+                        "description": "版本ID",
+                        "format": "string",
+                        "properties": {
+
+                        },
+                        "type": "string"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.internal.model.VersionBugListRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "获取待清理的bug",
+                "tags": [
+                    "版本管理"
+                ]
+            },
+            "summary": "获取待清理的bug"
+        },
+        "/loadtest/connections": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.ConnectionListRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "获取数据连接列表",
+                "tags": [
+                    "数据连接管理"
+                ]
+            },
+            "post": {
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TestPlatform.api.v1.ConnectionCreateReq"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.ConnectionCreateRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "新建数据连接",
+                "tags": [
+                    "数据连接管理"
+                ]
+            },
+            "summary": "新建数据连接"
+        },
+        "/loadtest/connections/{Id}": {
+            "delete": {
+                "parameters": [{
+                    "description": "数据连接id",
+                    "in": "path",
+                    "name": "Id",
+                    "required": true,
+                    "schema": {
+                        "description": "数据连接id",
+                        "format": "string",
+                        "properties": {
+
+                        },
+                        "type": "string"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.ConnectionDeleteRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "删除数据连接",
+                "tags": [
+                    "数据连接管理"
+                ]
+            },
+            "get": {
+                "parameters": [{
+                    "description": "数据连接id",
+                    "in": "path",
+                    "name": "Id",
+                    "required": true,
+                    "schema": {
+                        "description": "数据连接id",
+                        "format": "string",
+                        "properties": {
+
+                        },
+                        "type": "string"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.ConnectionDetailsRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "获取数据连接信息",
+                "tags": [
+                    "数据连接管理"
+                ]
+            },
+            "put": {
+                "parameters": [{
+                    "description": "数据连接id",
+                    "in": "path",
+                    "name": "Id",
+                    "required": true,
+                    "schema": {
+                        "description": "数据连接id",
+                        "format": "string",
+                        "properties": {
+
+                        },
+                        "type": "string"
+                    }
+                }],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TestPlatform.api.v1.ConnectionModifyReq"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.ConnectionModifyRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "修改数据连接",
+                "tags": [
+                    "数据连接管理"
+                ]
+            },
+            "summary": "修改数据连接"
+        },
+        "/loadtest/machines": {
+            "get": {
+                "parameters": [{
+                    "description": "机器类型",
+                    "in": "query",
+                    "name": "Type",
+                    "schema": {
+                        "description": "机器类型",
+                        "format": "[]string",
+                        "items": {
+                            "format": "string",
+                            "properties": {
+
+                            },
+                            "type": "string"
+                        },
+                        "properties": {
+
+                        },
+                        "type": "array"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.MachineListRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "获取机器列表",
+                "tags": [
+                    "服务器管理"
+                ]
+            },
+            "post": {
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TestPlatform.api.v1.MachineCreateReq"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.ScriptCreateRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "新建服务器",
+                "tags": [
+                    "服务器管理"
+                ]
+            },
+            "summary": "新建服务器"
+        },
+        "/loadtest/machines/{Id}": {
+            "delete": {
+                "parameters": [{
+                    "description": "服务器id",
+                    "in": "path",
+                    "name": "Id",
+                    "required": true,
+                    "schema": {
+                        "description": "服务器id",
+                        "format": "string",
+                        "properties": {
+
+                        },
+                        "type": "string"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.MachineDeleteRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "删除服务器",
+                "tags": [
+                    "服务器管理"
+                ]
+            },
+            "get": {
+                "parameters": [{
+                    "description": "服务器id",
+                    "in": "path",
+                    "name": "Id",
+                    "required": true,
+                    "schema": {
+                        "description": "服务器id",
+                        "format": "string",
+                        "properties": {
+
+                        },
+                        "type": "string"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.MachineDetailsRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "获取服务器信息",
+                "tags": [
+                    "服务器管理"
+                ]
+            },
+            "put": {
+                "parameters": [{
+                    "description": "服务器id",
+                    "in": "path",
+                    "name": "Id",
+                    "required": true,
+                    "schema": {
+                        "description": "服务器id",
+                        "format": "string",
+                        "properties": {
+
+                        },
+                        "type": "string"
+                    }
+                }],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TestPlatform.api.v1.MachineModifyReq"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.MachineModifyRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "修改服务器",
+                "tags": [
+                    "服务器管理"
+                ]
+            },
+            "summary": "修改服务器"
+        },
+        "/loadtest/project": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.ProjectListRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "获取工程管理列表",
+                "tags": [
+                    "工程管理"
+                ]
+            },
+            "post": {
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TestPlatform.api.v1.ProjectCreateReq"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.ProjectCreateRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "新建工程",
+                "tags": [
+                    "工程管理"
+                ]
+            },
+            "summary": "新建工程"
+        },
+        "/loadtest/project/ws": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "content": {
+                            "text/html": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.ProjectWebsocketRes"
+                                }
+                            }
+                        },
+                        "description": "ws response"
+                    }
+                },
+                "summary": "获取project状态websocket接口",
+                "tags": [
+                    "工程管理"
+                ]
+            },
+            "summary": "获取project状态websocket接口"
+        },
+        "/loadtest/project/{Id}": {
+            "delete": {
+                "parameters": [{
+                    "description": "工程id",
+                    "in": "path",
+                    "name": "Id",
+                    "required": true,
+                    "schema": {
+                        "description": "工程id",
+                        "format": "string",
+                        "properties": {
+
+                        },
+                        "type": "string"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.ProjectDeleteRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "删除工程记录",
+                "tags": [
+                    "工程管理"
+                ]
+            },
+            "get": {
+                "parameters": [{
+                    "description": "工程id",
+                    "in": "path",
+                    "name": "Id",
+                    "required": true,
+                    "schema": {
+                        "description": "工程id",
+                        "format": "string",
+                        "properties": {
+
+                        },
+                        "type": "string"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.ProjectDetailsRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "获取工程详细信息",
+                "tags": [
+                    "工程管理"
+                ]
+            },
+            "put": {
+                "parameters": [{
+                    "description": "工程id",
+                    "in": "path",
+                    "name": "Id",
+                    "required": true,
+                    "schema": {
+                        "description": "工程id",
+                        "format": "string",
+                        "properties": {
+
+                        },
+                        "type": "string"
+                    }
+                }],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TestPlatform.api.v1.ProjectModifyReq"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.ProjectModifyRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "修改工程",
+                "tags": [
+                    "工程管理"
+                ]
+            },
+            "summary": "修改工程"
+        },
+        "/loadtest/project/{Id}/action": {
+            "post": {
+                "parameters": [{
+                        "description": "工程id",
+                        "in": "path",
+                        "name": "Id",
+                        "required": true,
+                        "schema": {
+                            "description": "工程id",
+                            "format": "string",
+                            "properties": {
+
+                            },
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "操作方式",
+                        "in": "query",
+                        "name": "op",
+                        "required": true,
+                        "schema": {
+                            "description": "操作方式",
+                            "enum": [
+                                "copy",
+                                "start",
+                                "stop",
+                                "restart",
+                                "replaceJar"
+                            ],
+                            "format": "string",
+                            "properties": {
+
+                            },
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "jar包前缀",
+                        "in": "query",
+                        "name": "prefix",
+                        "schema": {
+                            "description": "jar包前缀",
+                            "format": "string",
+                            "properties": {
+
+                            },
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "jar包时间",
+                        "in": "query",
+                        "name": "jarTime",
+                        "schema": {
+                            "description": "jar包时间",
+                            "format": "string",
+                            "properties": {
+
+                            },
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "删除jar包关键字",
+                        "in": "query",
+                        "name": "deleteJar",
+                        "schema": {
+                            "description": "删除jar包关键字",
+                            "format": "string",
+                            "properties": {
+
+                            },
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TestPlatform.api.v1.ProjectActionReq"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.ProjectActionRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "操作工程",
+                "tags": [
+                    "工程管理"
+                ]
+            },
+            "summary": "操作工程"
+        },
+        "/loadtest/scripts": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.ScriptGetListRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "获取脚本列表",
+                "tags": [
+                    "脚本管理"
+                ]
+            },
+            "post": {
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TestPlatform.api.v1.ScriptCreateReq"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.ScriptCreateRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "新建脚本",
+                "tags": [
+                    "脚本管理"
+                ]
+            },
+            "summary": "新建脚本"
+        },
+        "/loadtest/scripts/{Id}": {
+            "delete": {
+                "parameters": [{
+                    "description": "脚本id",
+                    "in": "path",
+                    "name": "Id",
+                    "required": true,
+                    "schema": {
+                        "description": "脚本id",
+                        "format": "string",
+                        "properties": {
+
+                        },
+                        "type": "string"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.ScriptDeleteRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "删除脚本记录",
+                "tags": [
+                    "脚本管理"
+                ]
+            },
+            "get": {
+                "parameters": [{
+                    "description": "脚本id",
+                    "in": "path",
+                    "name": "Id",
+                    "required": true,
+                    "schema": {
+                        "description": "脚本id",
+                        "format": "string",
+                        "properties": {
+
+                        },
+                        "type": "string"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.ScriptDetailsRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "获取脚本详细信息",
+                "tags": [
+                    "脚本管理"
+                ]
+            },
+            "put": {
+                "parameters": [{
+                    "description": "脚本id",
+                    "in": "path",
+                    "name": "Id",
+                    "required": true,
+                    "schema": {
+                        "description": "脚本id",
+                        "format": "string",
+                        "properties": {
+
+                        },
+                        "type": "string"
+                    }
+                }],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TestPlatform.api.v1.ScriptModifyReq"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.ScriptModifyRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "修改脚本",
+                "tags": [
+                    "脚本管理"
+                ]
+            },
+            "summary": "修改脚本"
+        },
+        "/loadtest/scripts/{Id}/assets": {
+            "post": {
+                "parameters": [{
+                    "description": "脚本id",
+                    "in": "path",
+                    "name": "Id",
+                    "required": true,
+                    "schema": {
+                        "description": "脚本id",
+                        "format": "string",
+                        "properties": {
+
+                        },
+                        "type": "string"
+                    }
+                }],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TestPlatform.api.v1.ScriptAssetUploadReq"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.ScriptAssetUploadRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "上传脚本附件",
+                "tags": [
+                    "脚本管理"
+                ]
+            },
+            "summary": "上传脚本附件"
+        },
+        "/loadtest/scripts/{Id}/assets/{AssetName}": {
+            "delete": {
+                "parameters": [{
+                        "description": "脚本id",
+                        "in": "path",
+                        "name": "Id",
+                        "required": true,
+                        "schema": {
+                            "description": "脚本id",
+                            "format": "string",
+                            "properties": {
+
+                            },
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "附件名称",
+                        "in": "path",
+                        "name": "AssetName",
+                        "required": true,
+                        "schema": {
+                            "description": "附件名称",
+                            "format": "string",
+                            "properties": {
+
+                            },
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.ScriptAssetDeleteRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "删除脚本附件",
+                "tags": [
+                    "脚本管理"
+                ]
+            },
+            "get": {
+                "parameters": [{
+                        "description": "脚本id",
+                        "in": "path",
+                        "name": "Id",
+                        "required": true,
+                        "schema": {
+                            "description": "脚本id",
+                            "format": "string",
+                            "properties": {
+
+                            },
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "附件名称",
+                        "in": "path",
+                        "name": "AssetName",
+                        "required": true,
+                        "schema": {
+                            "description": "附件名称",
+                            "format": "string",
+                            "properties": {
+
+                            },
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.ScriptAssetDownloadRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "下载脚本附件",
+                "tags": [
+                    "脚本管理"
+                ]
+            },
+            "summary": "下载脚本附件"
+        },
+        "/loadtest/scripts/{Id}/copy": {
+            "get": {
+                "parameters": [{
+                    "description": "脚本id",
+                    "in": "path",
+                    "name": "Id",
+                    "required": true,
+                    "schema": {
+                        "description": "脚本id",
+                        "format": "string",
+                        "properties": {
+
+                        },
+                        "type": "string"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.ScriptCopyRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "复制脚本",
+                "tags": [
+                    "脚本管理"
+                ]
+            },
+            "summary": "复制脚本"
+        },
+        "/loadtest/scripts/{Id}/file": {
+            "get": {
+                "parameters": [{
+                    "description": "脚本id",
+                    "in": "path",
+                    "name": "Id",
+                    "required": true,
+                    "schema": {
+                        "description": "脚本id",
+                        "format": "string",
+                        "properties": {
+
+                        },
+                        "type": "string"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.ScriptDownloadRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "下载脚本",
+                "tags": [
+                    "脚本管理"
+                ]
+            },
+            "post": {
+                "parameters": [{
+                    "description": "脚本id",
+                    "in": "path",
+                    "name": "Id",
+                    "required": true,
+                    "schema": {
+                        "description": "脚本id",
+                        "format": "string",
+                        "properties": {
+
+                        },
+                        "type": "string"
+                    }
+                }],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TestPlatform.api.v1.ScriptUploadReq"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.ScriptUploadRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "上传脚本",
+                "tags": [
+                    "脚本管理"
+                ]
+            },
+            "summary": "上传脚本"
+        },
+        "/loadtest/task_reports": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.TaskReportListRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "获取任务执行记录列表",
+                "tags": [
+                    "任务执行管理"
+                ]
+            },
+            "summary": "获取任务执行记录列表"
+        },
+        "/loadtest/task_reports/{Id}/cancel": {
+            "get": {
+                "parameters": [{
+                    "description": "任务id-execid",
+                    "in": "path",
+                    "name": "Id",
+                    "required": true,
+                    "schema": {
+                        "description": "任务id-execid",
+                        "format": "string",
+                        "properties": {
+
+                        },
+                        "type": "string"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.TaskExecuteCancelRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "取消任务",
+                "tags": [
+                    "任务执行管理"
+                ]
+            },
+            "summary": "取消任务"
+        },
+        "/loadtest/task_reports/{id}": {
+            "delete": {
+                "parameters": [{
+                    "description": "任务执行记录id-execid",
+                    "in": "path",
+                    "name": "Id",
+                    "required": true,
+                    "schema": {
+                        "description": "任务执行记录id-execid",
+                        "format": "string",
+                        "properties": {
+
+                        },
+                        "type": "string"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.TaskReportDeleteRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "删除任务执行记录",
+                "tags": [
+                    "任务执行管理"
+                ]
+            },
+            "get": {
+                "parameters": [{
+                    "description": "任务执行记录id-execid",
+                    "in": "path",
+                    "name": "Id",
+                    "required": true,
+                    "schema": {
+                        "description": "任务执行记录id-execid",
+                        "format": "string",
+                        "properties": {
+
+                        },
+                        "type": "string"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.internal.model.TaskReportSingleRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "获取单个任务执行详情",
+                "tags": [
+                    "任务执行管理"
+                ]
+            },
+            "summary": "获取单个任务执行详情"
+        },
+        "/loadtest/tasks": {
+            "description": "任务列表页信息，应该是一个聚合接口，包含运行时信息",
+            "get": {
+                "description": "任务列表页信息，应该是一个聚合接口，包含运行时信息",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.TaskListRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "获取任务管理列表",
+                "tags": [
+                    "任务管理"
+                ]
+            },
+            "post": {
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TestPlatform.api.v1.TaskCreateReq"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.TaskCreateRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "新建任务",
+                "tags": [
+                    "任务管理"
+                ]
+            },
+            "summary": "新建任务"
+        },
+        "/loadtest/tasks/{Id}": {
+            "delete": {
+                "parameters": [{
+                    "description": "任务id",
+                    "in": "path",
+                    "name": "Id",
+                    "required": true,
+                    "schema": {
+                        "description": "任务id",
+                        "format": "string",
+                        "properties": {
+
+                        },
+                        "type": "string"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.TaskDeleteRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "删除任务记录",
+                "tags": [
+                    "任务管理"
+                ]
+            },
+            "get": {
+                "parameters": [{
+                    "description": "任务id",
+                    "in": "path",
+                    "name": "Id",
+                    "required": true,
+                    "schema": {
+                        "description": "任务id",
+                        "format": "string",
+                        "properties": {
+
+                        },
+                        "type": "string"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.TaskDetailsRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "获取任务详细信息",
+                "tags": [
+                    "任务管理"
+                ]
+            },
+            "put": {
+                "parameters": [{
+                    "description": "任务id",
+                    "in": "path",
+                    "name": "Id",
+                    "required": true,
+                    "schema": {
+                        "description": "任务id",
+                        "format": "string",
+                        "properties": {
+
+                        },
+                        "type": "string"
+                    }
+                }],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TestPlatform.api.v1.TaskModifyReq"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.TaskModifyRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "修改任务",
+                "tags": [
+                    "任务管理"
+                ]
+            },
+            "summary": "修改任务"
+        },
+        "/loadtest/tasks/{Id}/once": {
+            "get": {
+                "parameters": [{
+                    "description": "任务id",
+                    "in": "path",
+                    "name": "Id",
+                    "required": true,
+                    "schema": {
+                        "description": "任务id",
+                        "format": "string",
+                        "properties": {
+
+                        },
+                        "type": "string"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.TaskExecuteOnceRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "执行一次任务",
+                "tags": [
+                    "任务管理"
+                ]
+            },
+            "summary": "执行一次任务"
+        },
+        "/user/current": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.UserInfoRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "获取当前用户",
+                "tags": [
+                    "用户管理"
+                ]
+            },
+            "summary": "获取当前用户"
+        },
+        "/user/list": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/[]*v1.UserInfoRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "获取所有用户列表",
+                "tags": [
+                    "用户管理"
+                ]
+            },
+            "summary": "获取所有用户列表"
+        },
+        "/user/logout": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TestPlatform.api.v1.UserLogoutRes"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "summary": "执行用户注销接口",
+                "tags": [
+                    "用户管理"
+                ]
+            },
+            "summary": "执行用户注销接口"
+        }
+    }
+}
