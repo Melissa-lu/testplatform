@@ -1,0 +1,19 @@
+{
+    "value": [{
+            "label": "running",
+            "value": "running"
+        },
+        {
+            "label": "completed",
+            "value": "completed"
+        },
+        {
+            "label": "error",
+            "value": "error"
+        },
+        {
+            "label": "cancel",
+            "value": "cancel"
+        }
+    ]
+}
