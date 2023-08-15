@@ -1,0 +1,49 @@
+{
+    "/ScenarioAnalysis/basicinfo/<minorversion>": {
+        "get": {
+            "parameters": [{
+                "description": "project类型,如REPORT",
+                "in": "query",
+                "name": "ProjectId",
+                "required": true,
+                "schema": {
+                    "description": "project类型,如REPORT",
+                    "format": "string",
+                    "properties": {
+
+                    },
+                    "type": "string"
+                }
+            }]
+        },
+        "responses": {
+            "200": {
+                "code": 0,
+                "data": [{
+                    "id": "101",
+                    "minorversion": "11.0.6",
+                    "apart": "基础模块1",
+                    "bugid": "report-23456",
+                    "bugtitle": "ceshi1",
+                    "children": [{
+                            "bugid": "111",
+                            "bugtitle": "demo1",
+                            "ifcheck": true,
+                            "apart": "基础模块1"
+                        },
+                        {
+                            "bugid": "222",
+                            "bugtitle": "demo2",
+                            "ifcheck": true,
+                            "apart": "基础模块1"
+                        }
+                    ]
+                }]
+            },
+            "error": {
+                "code": 1,
+                "message": ""
+            }
+        }
+    }
+}
